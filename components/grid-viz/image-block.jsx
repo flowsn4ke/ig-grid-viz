@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Move, Trash } from "lucide-react";
+import { Move, Trash2 } from "lucide-react";
 
 export default function ImageBlock({ image, removeImage }) {
   const { attributes, listeners, transform, transition, setNodeRef } =
@@ -24,7 +24,12 @@ export default function ImageBlock({ image, removeImage }) {
       className={`w-42 aspect-3/4 text-white font-bold select-none relative`}
     >
       <div className="flex justify-between gap-x-1">
-        <Button {...listeners} size="icon-sm" variant="ghost">
+        <Button
+          {...listeners}
+          size="icon-sm"
+          variant="ghost"
+          className="hover:bg-opacity-90"
+        >
           <Move />
         </Button>
         <Button
@@ -36,8 +41,9 @@ export default function ImageBlock({ image, removeImage }) {
           }}
           size="icon-sm"
           variant="ghost"
+          className="hover:bg-opacity-90"
         >
-          <Trash />
+          <Trash2 />
         </Button>
       </div>
     </div>

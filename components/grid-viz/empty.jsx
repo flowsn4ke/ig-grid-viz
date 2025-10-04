@@ -2,7 +2,8 @@ export default function Empty() {
   return (
     <ol className="p-28 border border-dashed flex flex-col gap-y-4">
       <li>
-        1. <span className="font-semibold">Drag images</span> over here
+        1. <span className="font-semibold">Drag images</span> anywhere in this
+        window
       </li>
       <li>
         2. <span className="font-semibold">Drag & drop</span> images to
