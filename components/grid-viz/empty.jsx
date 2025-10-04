@@ -10,7 +10,7 @@ export default function Empty() {
         reorganize them
       </li>
       <li>
-        3. Your feed is saved <span className="font-semibold">locally</span>{" "}
+        3. Your design is saved <span className="font-semibold">locally</span>{" "}
         even if you close this tab !
       </li>
       <li>
