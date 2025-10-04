@@ -4,5 +4,6 @@
 - [x] Store position
 - [ ] Support button
 - [ ] Explain the state is persisted accross reloads
-- [ ] Isolate clients components for SEO
+- [x] Isolate clients components for SEO
 - [ ] Custom domain
+- [ ] Better button design
