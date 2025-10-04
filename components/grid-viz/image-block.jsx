@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Move, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
 export default function ImageBlock({ image, removeImage }) {
   const { attributes, listeners, transform, transition, setNodeRef } =
