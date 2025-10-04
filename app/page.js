@@ -16,7 +16,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { BrushCleaning, Loader, Move, Trash } from "lucide-react";
+import { BrushCleaning, Heart, Loader, Move, Trash } from "lucide-react";
 import { useCallback, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { useState } from "react";
@@ -87,9 +87,20 @@ export default function Home() {
       <main>
         {Boolean(!images.length) && <Empty />}
         <Grid images={images} removeImage={removeImage} />
+        <ImageDropzone setProcessing={setProcessing} addImage={addImage} />
       </main>
-      <ImageDropzone setProcessing={setProcessing} addImage={addImage} />
-      <div className="h-42" />
+      <footer className="h-42 flex items-center justify-center">
+        Made with&nbsp;
+        <Heart className="fill-red-500 text-red-500" />
+        &nbsp;@
+        <a
+          href="https://siquemlabs.com"
+          className="underline underline-offset-4"
+          target="_blank"
+        >
+          SiquemLabs
+        </a>
+      </footer>
     </div>
   );
 

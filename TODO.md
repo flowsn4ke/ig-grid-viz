@@ -5,3 +5,4 @@
 - [ ] Support button
 - [ ] Explain the state is persisted accross reloads
 - [ ] Isolate clients components for SEO
+- [ ] Custom domain
