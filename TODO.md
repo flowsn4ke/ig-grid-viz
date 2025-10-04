@@ -7,3 +7,4 @@
 - [x] Isolate clients components for SEO
 - [ ] Custom domain
 - [ ] Better button design
+- [x] Clearer steps when empty
