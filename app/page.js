@@ -34,7 +34,7 @@ export default function Home() {
 
   const addImage = async (image) => {
     setImages((images) => [...images, image]);
-    await saveImage(image);
+    await saveImage({ ...image, position: images.length });
   };
 
   const removeImage = async (id) => {
@@ -51,7 +51,9 @@ export default function Home() {
   useEffect(() => {
     // Load all images from IndexedDB on mount
     getAllImages().then((storedImages) => {
-      setImages(storedImages);
+      setImages(
+        storedImages.sort((a, b) => (a.position ?? 0) - (b.position ?? 0))
+      );
     });
   }, []);
 
@@ -92,16 +94,22 @@ export default function Home() {
     </div>
   );
 
-  function handleDragEnd(event) {
+  async function handleDragEnd(event) {
     const { active, over } = event;
 
-    if (active.id !== over.id) {
-      setImages((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over.id);
+    if (!over || active.id === over.id) return;
 
-        return arrayMove(items, oldIndex, newIndex);
-      });
+    let orderedImages;
+
+    setImages((items) => {
+      const oldIndex = items.findIndex((item) => item.id === active.id);
+      const newIndex = items.findIndex((item) => item.id === over.id);
+      orderedImages = arrayMove(items, oldIndex, newIndex);
+      return orderedImages;
+    });
+
+    for (const [position, image] of orderedImages.entries()) {
+      await saveImage({ ...image, position });
     }
   }
 }
