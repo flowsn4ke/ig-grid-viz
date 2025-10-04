@@ -21,17 +21,10 @@ export default function ImageBlock({ image, removeImage }) {
       ref={setNodeRef}
       {...attributes}
       style={style}
-      className={`w-42 aspect-3/4 text-white font-bold select-none relative`}
+      className={`w-42 aspect-3/4 text-white font-bold select-none`}
     >
-      <div className="flex justify-between gap-x-1">
-        <Button
-          {...listeners}
-          size="icon-sm"
-          variant="ghost"
-          className="hover:bg-opacity-90"
-        >
-          <Move />
-        </Button>
+      <div className="flex justify-between gap-x-1 w-full h-full relative">
+        <div {...listeners} className="w-full h-full hover:cursor-grab"></div>
         <Button
           onClick={(event) => {
             event.preventDefault();
@@ -41,7 +34,7 @@ export default function ImageBlock({ image, removeImage }) {
           }}
           size="icon-sm"
           variant="ghost"
-          className="hover:bg-opacity-90"
+          className="hover:bg-opacity-90 absolute top-0 right-0"
         >
           <Trash2 />
         </Button>
