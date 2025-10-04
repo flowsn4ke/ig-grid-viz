@@ -1,0 +1,4 @@
+- [ ] Show loading state when uploading images
+- [ ] Clear all button
+- [ ] Function import my IG
+- [ ] Store position (array index)
