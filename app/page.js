@@ -16,7 +16,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { BrushCleaning, Move, Trash } from "lucide-react";
+import { BrushCleaning, Loader, Move, Trash } from "lucide-react";
 import { useCallback, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { useState } from "react";
@@ -30,6 +30,7 @@ export default function Home() {
     })
   );
 
+  const [processing, setProcessing] = useState(true);
   const [images, setImages] = useState([]);
 
   const addImage = async (image) => {
@@ -54,22 +55,54 @@ export default function Home() {
       setImages(
         storedImages.sort((a, b) => (a.position ?? 0) - (b.position ?? 0))
       );
+      setProcessing(false);
     });
   }, []);
 
   return (
-    <div className="font-sans flex flex-col items-center gap-y-4">
+    <div className="font-sans flex flex-col items-center gap-y-4 max-w-xl mx-auto">
       <header className="my-10 flex flex-col gap-y-4">
         <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-linear-65 from-[#C13584] via-[#E1306C] to-[#F56040]">
           Instagram Grid Visualization
         </h1>
-        <div>
-          <Button variant="outline" onClick={() => clearAll()}>
-            <BrushCleaning />
-            <span>Clear All</span>
-          </Button>
+        <div className="flex items-center justify-between">
+          <div className="flex gap-x-4">
+            {/* <Button>
+              <Heart />
+              <span>Support</span>
+            </Button> */}
+            <Button variant="outline" onClick={() => clearAll()}>
+              <BrushCleaning />
+              <span>Clear All</span>
+            </Button>
+          </div>
+          {Boolean(processing) && (
+            <span className="animate-spin">
+              <Loader />
+            </span>
+          )}
+          {Boolean(!processing) && <p className="">{images.length} images</p>}
         </div>
       </header>
+      <main>
+        {Boolean(!images.length) && <Empty />}
+        <Grid images={images} removeImage={removeImage} />
+      </main>
+      <ImageDropzone setProcessing={setProcessing} addImage={addImage} />
+      <div className="h-42" />
+    </div>
+  );
+
+  function Empty() {
+    return (
+      <div className="p-28 border border-dashed font-bold">
+        Drag images anywhere over here !
+      </div>
+    );
+  }
+
+  function Grid({ images, removeImage }) {
+    return (
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -90,9 +123,8 @@ export default function Home() {
           </div>
         </SortableContext>
       </DndContext>
-      <ExternalFileDropzone addImage={addImage} />
-    </div>
-  );
+    );
+  }
 
   async function handleDragEnd(event) {
     const { active, over } = event;
@@ -154,13 +186,17 @@ function ImageBlock({ image, removeImage }) {
   );
 }
 
-export function ExternalFileDropzone({ addImage }) {
+export function ImageDropzone({ setProcessing, addImage }) {
   const onDrop = useCallback(
     async (files) => {
+      setProcessing(true);
+
       for (const file of files) {
         const { url, width, height } = await processImageToWebP(file);
         addImage({ id: nanoid(), width, height, url });
       }
+
+      setProcessing(false);
     },
     [addImage]
   );

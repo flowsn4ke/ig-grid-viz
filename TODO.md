@@ -1,5 +1,7 @@
-- [ ] Show loading state when uploading images
+- [x] Show loading state when processing images
 - [x] Clear all button
 - [ ] Function import my IG
 - [x] Store position
 - [ ] Support button
+- [ ] Explain the state is persisted accross reloads
+- [ ] Isolate clients components for SEO
