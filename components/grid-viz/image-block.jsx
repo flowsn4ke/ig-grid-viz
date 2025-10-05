@@ -41,7 +41,7 @@ export default function ImageBlock({ image, removeImage }) {
           }}
           size="icon"
           variant="ghost"
-          className="absolute top-1 right-1"
+          className="absolute top-1 right-1 hover:text-red-500 hover:cursor-pointer"
         >
           <Trash2 />
         </Button>

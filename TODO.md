@@ -12,3 +12,9 @@
 - [x] Dark theme
 - [x] Make the first image appear at the beginning
 - [ ] Improve state management with a library like zustand
+- [ ] Copy IG design (name of the tool as handle)
+- [ ] Multiple profile support
+- [ ] Add counter of grids created / images organized
+- [ ] Share with someone feature (encode data in url or upload it)
+- [ ] Modal to change profile name
+- [ ] Input button to change profile picture
