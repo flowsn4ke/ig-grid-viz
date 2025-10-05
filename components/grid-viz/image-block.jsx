@@ -5,8 +5,14 @@ import { CSS } from "@dnd-kit/utilities";
 import { Trash2 } from "lucide-react";
 
 export default function ImageBlock({ image, removeImage }) {
-  const { attributes, listeners, transform, transition, setNodeRef } =
-    useSortable({ id: image.id });
+  const {
+    attributes,
+    listeners,
+    transform,
+    transition,
+    setNodeRef,
+    isDragging,
+  } = useSortable({ id: image.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -14,6 +20,7 @@ export default function ImageBlock({ image, removeImage }) {
     backgroundImage: `url(${image.url})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
+    zIndex: isDragging ? 9999 : "auto",
   };
 
   return (
