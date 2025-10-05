@@ -12,8 +12,11 @@ export default function GridWrapper() {
   const [images, setImages] = useState([]);
 
   const addImage = async (image) => {
-    setImages((images) => [...images, image]);
-    await saveImage({ ...image, position: images.length });
+    setImages((prev) => {
+      const next = { ...image, position: prev.length };
+      saveImage(next);
+      return [...prev, next];
+    });
   };
 
   const removeImage = async (id) => {

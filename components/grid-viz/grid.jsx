@@ -52,17 +52,15 @@ export default function Grid({ images, removeImage, setImages }) {
 
     if (!over || active.id === over.id) return;
 
-    let orderedImages;
+    let reordered;
 
     setImages((items) => {
       const oldIndex = items.findIndex((item) => item.id === active.id);
       const newIndex = items.findIndex((item) => item.id === over.id);
-      orderedImages = arrayMove(items, oldIndex, newIndex);
-      return orderedImages;
+      reordered = arrayMove(items, oldIndex, newIndex);
+      return reordered;
     });
 
-    for (const [position, image] of orderedImages.entries()) {
-      await saveImage({ ...image, position });
-    }
+    reordered.forEach((image, position) => saveImage({ ...image, position }));
   }
 }

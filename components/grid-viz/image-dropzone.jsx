@@ -10,7 +10,7 @@ export default function ImageDropzone({ setProcessing, addImage }) {
 
       for (const file of files) {
         const { url, width, height } = await processImageToWebP(file);
-        addImage({ id: nanoid(), width, height, url });
+        await addImage({ id: nanoid(), width, height, url });
       }
 
       setProcessing(false);
