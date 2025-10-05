@@ -43,7 +43,7 @@ export default function GridWrapper() {
         images={images}
         removeImage={removeImage}
       />
-      {Boolean(!images.length) && <Empty />}
+      {Boolean(!images.length && !processing) && <Empty />}
       <Grid images={images} setImages={setImages} removeImage={removeImage} />
       <ImageDropzone setProcessing={setProcessing} addImage={addImage} />
     </>
