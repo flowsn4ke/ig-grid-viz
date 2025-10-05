@@ -17,6 +17,8 @@ export default function GridWrapper() {
       next.forEach((image) => saveImage(image));
       return next;
     });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const removeImage = async (id) => {
