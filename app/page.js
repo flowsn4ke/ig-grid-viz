@@ -3,7 +3,7 @@ import GridWrapper from "@/components/grid-viz/grid-wrapper";
 import Header from "@/components/layout/header";
 
 export const metadata = {
-  title: "Instagram Grid Visualization (Free Online Tool)",
+  title: "InstaGrid - Design Your Instagram Grid (Free Online Tool)",
   description: "Design an engaging Instagram Feed in seconds",
 };
 
