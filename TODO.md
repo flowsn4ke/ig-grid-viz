@@ -9,3 +9,4 @@
 - [ ] Better button design
 - [x] Clearer steps when empty
 - [ ] Select images with tickboxes keyboard shortcut (ctrl + A)
+- [ ] Dark theme

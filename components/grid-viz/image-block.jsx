@@ -32,9 +32,9 @@ export default function ImageBlock({ image, removeImage }) {
 
             removeImage(image.id);
           }}
-          size="icon-sm"
+          size="icon"
           variant="ghost"
-          className="hover:bg-opacity-90 absolute top-0 right-0"
+          className="absolute top-1 right-1"
         >
           <Trash2 />
         </Button>
