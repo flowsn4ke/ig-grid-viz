@@ -28,7 +28,7 @@ export default function ImageBlock({ image, removeImage }) {
       ref={setNodeRef}
       {...attributes}
       style={style}
-      className={`w-42 aspect-3/4 text-white font-bold select-none`}
+      className={`w-32 md:w-42 aspect-3/4 text-white font-bold select-none`}
     >
       <div className="flex justify-between gap-x-1 w-full h-full relative">
         <div {...listeners} className="w-full h-full hover:cursor-grab"></div>

@@ -5,8 +5,8 @@
 - [ ] Support button
 - [ ] Explain the state is persisted accross reloads
 - [x] Isolate clients components for SEO
-- [ ] Custom domain
-- [ ] Better button design
+- [x] Custom domain
+- [x] Better delete button design
 - [x] Clearer steps when empty
 - [ ] Select images with tickboxes keyboard shortcut (ctrl + A)
 - [x] Dark theme
