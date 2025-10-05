@@ -9,6 +9,6 @@
 - [ ] Better button design
 - [x] Clearer steps when empty
 - [ ] Select images with tickboxes keyboard shortcut (ctrl + A)
-- [ ] Dark theme
+- [x] Dark theme
 - [x] Make the first image appear at the beginning
 - [ ] Improve state management with a library like zustand
